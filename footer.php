@@ -13,10 +13,12 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
-			<?php do_action( '_s_credits' ); ?>
-			<a href="http://wordpress.org/" title="<?php esc_attr_e( 'A Semantic Personal Publishing Platform', '_s' ); ?>" rel="generator"><?php printf( __( 'Proudly powered by %s', '_s' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( __( 'Theme: %1$s by %2$s.', '_s' ), '_s', '<a href="http://automattic.com/" rel="designer">Automattic</a>' ); ?>
+			
+			
+			<a href="http://www.facebook.com"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/fb.png"></a>
+			<a href="http://www.twitter.com"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/twit.png"></a>
+			<a href="http://www.pinterest.com"><img src="<?php echo get_stylesheet_directory_uri(); ?>/img/pin.png"></a>
+			<!-- theme by <a href="http://cjlaughlin.com">cjLaughlin</a> -->
 		</div><!-- .site-info -->
 	</footer><!-- #colophon .site-footer -->
 </div><!-- #page .hfeed .site -->
