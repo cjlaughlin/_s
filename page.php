@@ -12,7 +12,7 @@
  */
 
 get_header(); ?>
-
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
 <script type="text/javascript">
 function submitform()
 {
@@ -66,14 +66,31 @@ function submitform()
 <script>
 jQuery(document).ready(function($){
 	$('.form_select').on("click", function(event){
-		$(this).parent().addClass('flipper');
-		$('#email_form').addClass('flip_in');
-		$(this).parent().fadeOut(500);
-		$(this).parent().parent().animate({
+
+
+		if (typeof browser_is_ie !== 'undefined'){
+			$(this).parent().parent().animate({
 				height: 600
 				}, 500, function() {
 			    // Animation complete.
 			});
+			$(this).parent().animate({
+			    top: '-=300'
+			  }, 1000, function() {
+			    // Animation complete.
+			});
+			$(this).parent().fadeOut(500);
+			$('#email_form').slideDown(1000);
+		}else{
+			$(this).parent().fadeOut(500);
+			$(this).parent().parent().animate({
+				height: 600
+				}, 500, function() {
+			    // Animation complete.
+			});
+			$(this).parent().addClass('flipper');
+			$('#email_form').addClass('flip_in');
+		};
 	});//onClick for button
 
 	$('.guy, .girl').on("click", function(event){

@@ -10,6 +10,7 @@
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
+
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width" />
 <title><?php wp_title( '|', true, 'right' ); ?></title>
@@ -17,13 +18,20 @@
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <script type="text/javascript" src="//use.typekit.net/fni7ssq.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
 <?php wp_enqueue_script("jquery"); ?>
 
 <!--[if lt IE 9]>
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
+
 <![endif]-->
 
 <?php wp_head(); ?>
+
+<!--[if IE]>
+<script type="text/javascript">browser_is_ie = true;</script>
+<link rel="stylesheet" type="text/css" href="<?php ob_start(); bloginfo('stylesheet_url'); $stylesheet_path = ob_get_contents(); ob_end_clean(); echo dirname($stylesheet_path); ?>/ie_style.css" />
+<![endif]-->
 </head>
 
 <body <?php body_class(); ?>>
