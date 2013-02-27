@@ -18,6 +18,10 @@ function submitform()
 {
   document.email.submit();
 }
+
+if (window.screen.width <= 320) {
+    var iphone = true;
+}
 </script>
 
 		<div id="primary" class="content-area">
@@ -25,18 +29,18 @@ function submitform()
 				<div id="buttons">
 					<div class="form_select" id="personal" >Personal</div>
 					<div class="form_select" id="work" >Work</div>
-					<div class="form_select" id="genera0l" >General</div>
+					<div class="form_select" id="general" >General</div>
 					<div class="form_select" id="conflict" >Conflict</div>
 				</div> <!-- buttons -->
 			<div id="email_form" class="flipped_out">
 				<form name="email" action="cb-comments-post.php" method="post" id="commentform">
 					<div id="from">
-						<input size="40" id="author" name="author" type="text" value="What&#39;s your name?" aria-required='true' onFocus="if(this.value == 'What\'s your name?'){this.value=''}" onblur="if(this.value == ''){this.value='What\'s your name?'}"/>
+						<input id="author" name="author" type="text" value="What&#39;s your name?" aria-required='true' onFocus="if(this.value == 'What\'s your name?'){this.value=''}" onblur="if(this.value == ''){this.value='What\'s your name?'}"/>
 						<div class="guy"><img src="wp-content/themes/CheeseBurger/img/guy.png" height="40px"></div>
-						<div class="girl"><img src="wp-content/themes/CheeseBurger/img/girl.png" height="40px"></div> 
+						<div class="girl"><img src="wp-content/themes/CheeseBurger/img/girl.png" height="40px"></div>
 					</div> <!-- /name -->
 					<div id="email">
-					<input size="40" id="email" name="email" type="text" value="Email" aria-required='true' onFocus="if(this.value == 'Email'){this.value=''}" onblur="if(this.value == ''){this.value='Email'}"/>
+					<input size="40" id="email" name="email" type="email" value="Email" aria-required='true' onFocus="if(this.value == 'Email'){this.value=''}" onblur="if(this.value == ''){this.value='Email'}"/>
 					</div> <!-- /email -->
 					<div id="to">
 						<p>&nbsp;You are writing to a:</p>
@@ -44,7 +48,7 @@ function submitform()
 						<div class="girl"><img src="wp-content/themes/CheeseBurger/img/girl.png" height="40px"></div> 
 					</div>
 					<div id="comment">
-						<textarea id="comment" name="comment" cols="42" rows="9" aria-required="true" value="" onFocus="if(this.value == 'What are you trying to say?'){this.value=''}" onblur="if(this.value == ''){this.value='What are you trying to say?'}">What are you trying to say?</textarea>
+						<textarea id="comment" name="comment" rows="9" aria-required="true" value="" onFocus="if(this.value == 'What are you trying to say?'){this.value=''}" onblur="if(this.value == ''){this.value='What are you trying to say?'}">What are you trying to say?</textarea>
 						<div id="tone">
 							<div class="tone_button" id="bitchy">bitchy</div>
 							<div class="tone_button" id="flat">flat</div> 
@@ -65,8 +69,8 @@ function submitform()
 
 <script>
 jQuery(document).ready(function($){
-	$('.form_select').on("click", function(event){
-
+	$('.form_select').on('touchstart click', function(e){
+		e.preventDefault();
 
 		if (typeof browser_is_ie !== 'undefined'){
 			$(this).parent().parent().animate({
@@ -83,17 +87,28 @@ jQuery(document).ready(function($){
 			$('#email_form').slideDown(1000);
 		}else{
 			$(this).parent().fadeOut(500);
-			$(this).parent().parent().animate({
-				height: 600
-				}, 500, function() {
-			    // Animation complete.
-			});
-			$(this).parent().addClass('flipper');
-			$('#email_form').addClass('flip_in');
+			if (iphone == true){
+				$(this).parent().parent().animate({
+					height: 700
+					}, 500, function() {
+				    // Animation complete.
+				});
+				$(this).parent().addClass('flipper');
+				$('#email_form').addClass('flip_in');
+			}else{
+				$(this).parent().parent().animate({
+					height: 600
+					}, 500, function() {
+				    // Animation complete.
+				});
+				$(this).parent().addClass('flipper');
+				$('#email_form').addClass('flip_in');
+			}
 		};
 	});//onClick for button
 
-	$('.guy, .girl').on("click", function(event){
+	$('.guy, .girl').on('touchstart click', function(e){
+		e.preventDefault();
 		sex = $(this).attr('class');
 		console.log($(this))
 		$('input[name=sex_' + $(this).parent().attr('id') + ']').val(sex).change();
@@ -106,7 +121,8 @@ jQuery(document).ready(function($){
 	    console.log($(this).val());
 	});
 
-	$('#tone > div').on("click", function(event){
+	$('#tone > div').on('touchstart click', function(e){
+		e.preventDefault();
 		tone = $(this).attr('id');
 		$('input[name=tone]').val(tone).change();
 

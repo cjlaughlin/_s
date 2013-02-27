@@ -906,6 +906,8 @@ p.nocomments {
 	position: relative;
 	height: 300px;
 	overflow: scroll;
+	margin: 0;
+	padding: 0;
 }
 
 #content > div {
@@ -1035,16 +1037,16 @@ p.nocomments {
 .guy {
 	background-color: #BADEED;
 }
-	.guy:hover {
+/*	.guy:hover {
 		background-color: #618797;
-	}
+	}*/
 
 .girl {
 	background-color: #EDBAE9;
 }
-	.girl:hover {
+/*	.girl:hover {
 	background-color: #9D7099;
-	}
+	}*/
 
 .css_btn_class {
 	font-size:16px;
@@ -1078,6 +1080,169 @@ p.nocomments {
 	top:1px;
 }
 
+input, textarea {
+	width: 300px;
+}
 
-/*  -ms-transform: rotate(10deg);
--sand-transform: rotate(10deg);*/
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+	#main,
+.main-navigation,
+.site-title,
+.site-description {
+    margin: 0 auto;
+    padding: 0;
+	max-width: 700px;
+}
+
+.site-header {
+	margin: 0 auto;
+	width: 700px;
+}
+
+.site-title {
+	font-size: 50px;
+	font-size: 5.0rem;
+	font-family: "chaparral-pro-caption",sans-serif;
+	font-style: italic;
+	font-weight: 900;
+	text-align: center;
+	text-shadow: rgb(115, 111, 117) 2px 2px 0px, #3A393B 4px 3px 0px;
+	letter-spacing: 2px;
+}
+
+	#content {
+	position: relative;
+	height: 500px;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+}
+
+	#buttons{
+	left: 155px;
+	height: 400px;
+	width: 400px;
+	padding-top: 10px;
+	/*border: solid 1px red;*/
+	font-size: 30px;
+	font-weight: 600;
+}
+	#general {clear: left;}
+
+	.form_select {
+	margin: 30px;
+}
+	#email_form {
+	left: 100px;
+	height: 450px;
+	width: 470px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	padding: 20px;
+	border: solid 2px rgba(222, 224, 218, 1);
+	background-color: white;
+	-webkit-box-shadow: 7px 7px 0px rgba(222, 224, 218, 1);
+	-moz-box-shadow:    7px 7px 0px rgba(222, 224, 218, 1);
+	box-shadow:         7px 7px 0px rgba(222, 224, 218, 1);
+	-webkit-transform-style: preserve-3d;
+}
+
+
+
+}
+
+@media only screen and (max-device-width: 480px) {
+
+		#main,
+.main-navigation,
+.site-title,
+.site-description {
+    margin: 0 auto;
+    padding: 0;
+	max-width: 320px;
+}
+
+.main-navigation {
+	display: none;
+}
+.site-header {
+	margin: 0 auto;
+	width: 320px;
+
+}
+
+.site-title {
+	font-size: 25px;
+	font-size: 2.50rem;
+	font-family: "chaparral-pro-caption",sans-serif;
+	font-style: italic;
+	font-weight: 900;
+	text-align: center;
+	text-shadow: rgb(115, 111, 117) 2px 2px 0px, #3A393B 4px 3px 0px;
+	letter-spacing: 2px;
+}
+
+	#content {
+	position: relative;
+	height: 500px;
+	width: 320px;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+}
+
+	#buttons{
+	left: 0;
+	height: 400px;
+	width: 319px;
+	padding-top: 10px;
+	/*border: solid 1px red;*/
+	font-size: 25px;
+	font-weight: 600;
+}
+	#general {clear: left;}
+
+	.form_select {
+	float: left;
+	height: 110px;
+	width: 110px;
+	margin: 15px;
+	background-color: #736F75;
+	border-radius: 160px;
+	line-height: 110px;
+	text-align: center;
+	color: #FFFEF5;
+	-webkit-box-shadow: 7px 7px 0px rgba(222, 224, 218, 1);
+	-moz-box-shadow:    7px 7px 0px rgba(222, 224, 218, 1);
+	box-shadow:         7px 7px 0px rgba(222, 224, 218, 1);
+}
+
+	#email_form {
+	left: 0;
+	height: 400px;
+	width: 320px;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 0;
+	background-color: white;
+	-webkit-box-shadow: none;
+	-moz-box-shadow:    none;
+	box-shadow:         none;
+	-webkit-transform-style: preserve-3d;
+}
+
+
+#email {
+	margin-top: 15px;
+}
+
+.css_btn_class {
+	padding:9px 125px;
+	
+
+}
+
+
+
+
