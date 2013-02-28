@@ -905,7 +905,7 @@ p.nocomments {
 #content {
 	position: relative;
 	height: 300px;
-	overflow: scroll;
+	overflow: none;
 	margin: 0;
 	padding: 0;
 }
@@ -956,7 +956,13 @@ p.nocomments {
 	-webkit-transition: 1s;
 	-webkit-transform: perspective(300px) rotateY(-180deg);				
 	-webkit-backface-visibility: hidden;
+	-moz-transform-style: preserve-3d;
+	-moz-transition: 1s;
+	-moz-transform: perspective(300px) rotateY(-180deg);				
+	-moz-backface-visibility: hidden;
 }
+
+
 
 #email_form {
 	left: 250px;
@@ -971,19 +977,46 @@ p.nocomments {
 	-moz-box-shadow:    7px 7px 0px rgba(222, 224, 218, 1);
 	box-shadow:         7px 7px 0px rgba(222, 224, 218, 1);
 	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
 }
 .flipped_out {
 	-webkit-backface-visibility: hidden;
 	-webkit-transform: perspective(1000px) rotateY(180deg);	
+	-moz-backface-visibility: hidden;
+	-moz-transform: perspective(1000px) rotateY(180deg);	
 }
 .flip_in{
 	-webkit-transition: 1s;
 	-webkit-transform: perspective(1000px) rotateY(0deg);	
+	-moz-transition: 1s;
+	-moz-transform: perspective(1000px) rotateY(0deg);	
+}
+
+.spin{
+-webkit-animation-name: rotateThis;
+-webkit-animation-duration:1s;
+-webkit-animation-iteration-count: 1;
+-webkit-animation-timing-function:ease-in-out;
+-webkit-animation-fill-mode: forwards;
+-moz-animation-name: rotateThis;
+-moz-animation-duration:1s;
+-moz-animation-iteration-count: 1;
+-moz-animation-timing-function:ease-in-out;
+-moz-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes rotateThis {
+0% { -webkit-transform:scale(1) rotate(0deg) translate(0, 0); }
+100% {-webkit-transform:scale(0) rotate(720deg) translate(0, -900px); }
+}
+
+@-moz-keyframes rotateThis {
+0% { -moz-transform:scale(1) rotate(0deg) translate(0, 0); }
+100% {-moz-transform:scale(0) rotate(720deg) translate(0, -900px); }
 }
 
 #comment {
 	float: left;
-	clear: both;
 }
 
 #commentform > div:not(#comment) {
@@ -992,7 +1025,7 @@ p.nocomments {
 	height: 50px;
 }
 
-#comment > * {
+#tone {
 	float: left;
 }
 
@@ -1017,12 +1050,13 @@ p.nocomments {
 }
 
 .tone_button {
+	float: left;
 	margin-left: 10px;
-	margin-top: 10px;
-	height: 60px;
-	width: 60px;
-	border-radius: 60px;
-	line-height: 60px;
+	margin-top: 8px;
+	height: 50px;
+	width: 50px;
+	border-radius: 50px;
+	line-height: 50px;
 	text-align: center;
 	color: white;
 	font-weight: 500;
@@ -1084,6 +1118,15 @@ input, textarea {
 	width: 300px;
 }
 
+#yay {
+	display:none;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 100px;
+	font-family: "chaparral-pro-caption",sans-serif;
+	font-style: italic;
+	font-size: 40px;
+}
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
 	#main,
@@ -1193,7 +1236,7 @@ input, textarea {
 }
 
 	#buttons{
-	left: 0;
+	left: 17px;
 	height: 400px;
 	width: 319px;
 	padding-top: 10px;
@@ -1225,21 +1268,40 @@ input, textarea {
 	margin-top: 0;
 	margin-bottom: 0;
 	padding: 0;
-	background-color: white;
+	background-color: #FFFEF5;
 	-webkit-box-shadow: none;
 	-moz-box-shadow:    none;
 	box-shadow:         none;
+	border: none;
 	-webkit-transform-style: preserve-3d;
 }
 
 
+.guy,
+.girl {
+	margin-left: 10px;
+	height: 40px;
+	width: 40px;
+	border-radius: 40px;
+	text-align: center;
+	color: white;
+}
+
 #email {
-	margin-top: 15px;
+	margin-top: 25px;
+	margin-bottom: 25px;
 }
 
 .css_btn_class {
 	padding:9px 125px;
 	
+textarea {
+	height: 100px;
+}
+
+#tone {
+	position: inline;
+}
 
 }
 
